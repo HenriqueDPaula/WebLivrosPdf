@@ -1,0 +1,31 @@
+﻿@model Front.Models.Supplier
+
+@{
+    ViewBag.Title = "Excluir Fornecedor";
+}
+
+<h2>Excluir</h2>
+
+<h3>Você tem certeza que deseja excluir este fornecedor?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar para Listagem", "Index")
+        </div>
+    }
+</div>

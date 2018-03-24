@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Front.Models.Sell>
+
+@{
+    ViewBag.Title = "Vendas";
+}
+
+<h2>Vendas</h2>
+
+<p>
+    @Html.ActionLink("Nova Venda", "Create", "List", new {  @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>Data</th>
+        <th>Número NF</th>
+        <th>Nome Comprador</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+        <th>Total</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SellNumver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyerDoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.SellId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.SellId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.SellId })
+        </td>
+    </tr>
+}
+
+</table>

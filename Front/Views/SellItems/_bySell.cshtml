@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Front.Models.SellItem>
+
+@{
+    ViewBag.Title = "_bySell";
+}
+
+<h2>Items</h2>
+
+<table class="table table-hover table-condensed">
+    <tr>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Valor unitário</th>
+        <th>Valor total</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor( modelItem => item.TotalValue)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.SellItemId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.SellItemId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.SellItemId })
+                </td>*@
+        </tr>
+    }
+
+</table>
